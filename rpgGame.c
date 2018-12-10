@@ -4321,42 +4321,50 @@ void main(void)
                     case 20:
                     {
 			
+				
 				#define BOLDBLACK "\033[1m\033[30m"
 				#define BOLDGREEN "\033[1m\033[32m"
 				#define RED "\x1b[31m"
 				#define BLUE "\x1b[34m"
 				#define BOLDBLUE "\033[1m\033[34m"
 				#define BOLDRED "\033[1m\033[31m"
+				//#define SIZE 11
 
-				puts(BOLDBLACK "\n\nWelcome to Karina's Spanish 101 class!"  BOLDGREEN " \u263A\n" RESET);
+				system("clear");
+				puts(BOLDBLACK "\n\t\t\t\t\t\t WELCOME!! WELCOME!! WELCOME!!\n");
+				puts("\n\t\t\t\t\t     BIENVENIDO!! BIENVENIDA!! BIENVENIDOS!!\n");
+				puts(BOLDBLACK "\n\t\t\t\t\t     Welcome to Karina's Spanish 101 class!\n"  BOLDGREEN " \u263A\n" RESET);
 				puts("I have created 3 exams for you to take, so the end of this adventure you should be able to express yourself in spanish.\n");
-				puts("You have the choice to challenge me if you don't want to start from level 1.\n");
-				puts("You may choose a level above level 1 and if you pass the chosen level with a 90% or above then you automatically pass levels below the chosen level!\n");
-				puts("BUT if you do not pass the chosen level with a 90% or above then you will restart from level 1, so CHALLENGE ME! :P\n");
-				puts("If you choose to start from level 1 then you can work your way up to the next 2 levels.\n");
+	
+				
 				puts("The average of the 3 exams will be taken at the end. If you pass with an 80% then you pass the class otherwise you will retake the class.\n");
 				puts(BOLDBLACK"Let the challenge begin! Enjoy! :D"RESET);
 				puts("You may quit anytime by selecting option 99, but I recommend you not to quit!");					
-
+			
                         while(choice != 99)
                         {
                             	
 				puts(BOLDBLACK"\nHere are your choices. You may work on your way up or challenge me:\n"RESET);
-				puts(BOLDBLACK"Level 1"RESET);
-				puts(BOLDBLACK"Level 2"RESET);
-				puts(BOLDBLACK"Level 3\n"RESET);
+				puts(BOLDBLACK"Level 1 --> press 1"RESET);
+				puts(BOLDBLACK"Level 2 --> press 2"RESET);
+				puts(BOLDBLACK"Level 3 --> press 3\n"RESET);
 
 				scanf("%d",&choice);
 				switch(choice)
+
 				{
 					
 					case 1: 
+					system("clear");
+					srand(time(NULL));
 					puts(BOLDBLUE"\n**** Welcome to level 1! ****\n"RESET);
 				
 				int score = 0;
 				char input;
 				char n[30];
-				choice = (rand() %10) + 1;
+				srand(time(NULL));
+				//int arrayA[SIZE];
+				//choice = (rand() %10) + 1;
 				gets(name);
 				puts(BOLDBLACK"\n1. Please choose the correct translation for:"RESET BOLDBLUE" goodmorning"RESET);
 				puts(" A. buenas noches\n B. buenos días\n C. buenas tardes\n D. buen días\n");
@@ -4420,15 +4428,19 @@ void main(void)
 
 				}
 
-				break;	
+				break;		
 			
 				case 2: 
 
-				puts(BOLDBLUE"\n**** Welcome to level 2! ****\n"RESET);
-
-				puts(BOLDBLACK"\n1. Please choose the correct translation for:"RESET BOLDBLUE" Monday"RESET);
+				system("clear");
+				int random = rand()%5+1;
+				puts(BOLDBLUE"\n**** Welcome to level 2! ****\n");
+				
+				puts(BOLDBLACK"\n1. Please choose the correct translation for:" BOLDBLUE" Monday");
+				//randomize(arrayA);
+				//printer(arrayA);
 				puts(" A. Viernes\n B. Martes\n C. Lunes\n D. Miércoles\n E. Jueves\n");
-				printf(BOLDBLACK"Answer:\n"RESET);
+				printf(BOLDBLACK"Answer:\n");
 				scanf(" %c" ,&input);
 				if((input=='C') || (input == 'c'))
 				{
@@ -4436,41 +4448,150 @@ void main(void)
 					
 				}
 
-				puts(BOLDBLACK"\n2. Please choose the correct translation for:"RESET BOLDBLUE" Tuesday"RESET);
+				puts(BOLDBLACK"\n2. Please choose the correct translation for:" BOLDBLUE" Wednesday");
 				puts(" A. Viernes\n B. Martes\n C. Lunes\n D. Miércoles\n E. Jueves\n");
-				printf(BOLDBLACK"Answer:\n"RESET);
+				printf(BOLDBLACK"Answer:\n");
+				scanf(" %c" ,&input);
+				if((input=='D') || (input == 'd'))
+				{
+					score = score+2; 
+				}
+			
+				puts(BOLDBLACK"\n3. Please choose the correct translation for:" BOLDBLUE" Sunday");
+				puts(" A. Viernes\n B. Domingo\n C. Lunes\n D. Miércoles\n E. Jueves\n");
+				printf(BOLDBLACK"Answer:\n");
 				scanf(" %c" ,&input);
 				if((input=='B') || (input == 'b'))
 				{
 					score = score+2; 
 				}				
-
+				
+				{
 				puts("------------------------");
-				printf(BOLDBLACK"%s You scored %d out of 10\n"RESET, n, score);
+				printf(BOLDBLACK"%s You scored %d out of 16\n", n, score);
 				puts("------------------------");
-
-				puts(BOLDBLUE"\nHere are the rest of the week days that you should know\n"RESET);
+				}
+				puts(BOLDBLUE"\nHere are the rest of the week days that you should know\n");
 				puts("Jueves = Thursday");
+				puts("Martes = Tuesday");
+				puts("Viernes = Friday");
+				puts("Sabado = Saturday");
 
-				if (score >= 8)
+				if (score >= 14)
 
-				puts(BOLDGREEN"\nGood Job!! I'm so proud of you! :')"RESET);
+				puts(BOLDGREEN"\nKeep going!!Good Job!! I'm so proud of you! :')");
 
 				else
 
 				{
 					
-					printf(BOLDRED "\nCome on! You are better than this!! -.- \n" RESET);
+					printf(BOLDRED "\nCome on! You are better than this!! -.- \n");
 
 				}
 
+				break;
+				case 3:
+				
+
+				system("clear");
+				puts(BOLDBLUE"\n**** Welcome to level 3! ****\n");
+				puts(BOLDBLACK"\n1. Please input the correct translation for:" BOLDBLUE" thank you\n");
+				char nu[30];
+				char in[10];
+				char string[1000];
+				
+				scanf("%s", in);
+				
+				
+					if(strcmp("gracias", in) == 0)
+					
+					{
+					score = score+2;
+					puts(BOLDGREEN"Correct!!\n");
+					}
+					else
+					{
+					puts(BOLDRED"wrong!\n");
+					
+					}
+					
+
+				puts(BOLDBLACK"\n2. Please choose the correct translation for:" BOLDBLUE" today?");
+				puts(" A. noy\n B. hoy\n C. hoya\n D. hoy es\n");
+				printf(BOLDBLACK"Answer:\n");
+				scanf(" %c" ,&input);
+				if((input=='A') || (input == 'a'))
+				{
+					score = score+2; 
+					
+				}				
+
+				puts(BOLDBLACK"\n3. Please choose the correct translation for:" BOLDBLUE" I am mean");
+				puts(" A. Yo soy malo(a)\n B. Yo estoy malo(a)\n C. Yo es malo(a)\n D. Yo hay malo(a)\n");
+				printf(BOLDBLACK"Answer:\n");
+				scanf(" %c" ,&input);
+				if((input=='A') || (input == 'a'))
+				{
+					score = score+2; 
+					
+				}
+
+			
+				
+				puts(BOLDBLACK"\n4. Please choose the correct translation for:" BOLDBLUE" How old are you?");
+				puts(" A. cuantos anos tienes\n B. Cuantos años tienes\n C. Cuatas años\n D. Cuatas años tengo\n");
+				printf(BOLDBLACK"Answer:\n");
+				scanf(" %c" ,&input);
+				if((input=='B') || (input == 'b'))
+				{
+					score = score+2; 
+					
+				}
+
+
+
+				{
+				puts("------------------------");
+				printf(BOLDBLACK"%s You scored %d out of 24\n", n, score);
+				puts("------------------------");
+				}
+				
+
+				if (score >= 20)
+
+				puts(BOLDGREEN"\nGood Job!! I'm so proud of you! :')");
+
+				else
+
+				{
+					
+					printf(BOLDRED "\nCome on! You are better than this!! -.- \n");
+
+
+
+					
+					}
+				if(score >= 22)
+				puts("Congratulations you have passed the class!!!");
+				else
+				{
+				puts("WOW!!! You are a LOSER!!");
+
+
+			
+				}
+
+
+				
 				}
 					
 				if(choice == 99)
 				{
-					puts(BOLDRED"\nW H Y\nA R E\nY O U\n  A\nQ U I T T E R?!!"RESET);
+					puts(BOLDRED"\nW H Y\nA R E\nY O U\n  A\nQ U I T T E R?!"RESET);
 				
 				}
+
+
                         }
                         break;
                     }
