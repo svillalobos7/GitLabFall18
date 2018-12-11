@@ -7,7 +7,7 @@
 
 
 // Justin Do Room #2
-
+// Darren De Vera Room #3
 
 //kseeram
 #include <stdlib.h>
@@ -190,6 +190,7 @@ void main(void)
 				}
 				break;
 			}
+			break;
 		}
             case 4:
                 {
