@@ -2303,9 +2303,6 @@ void main(void)
                 }
             case 9:
                 {
-					#define GREEN   "\x1b[32m"
-					#define RESET   "\x1b[0m"
-					#define RED     "\x1b[31m"
 					#define FILE_NAME "MadDog.txt"
 					
 					
