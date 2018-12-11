@@ -503,61 +503,61 @@ void main(void)
 						printf("You take %d damage!",x);
 						puts("You run out of the room covered in cactus thorns.\n");
 					}
+				}
+				else if(choice == 2)
+				{
+					puts("You ignore the creatures and head toward the treasure chest.");
+					x = (rand() % 100) + 1;
+					playerGold = x;
+					printf("You open it and find %d gold inside! You put the gold into your bag.",playerGold);
+					puts("You hear something hit the top of the chest and notice cactus thorns have pierced the chest.");
+					puts("The cactus creatures have fired their thorns at you and readying to fire again! What do you do?");
+					puts("1. Run away!");
+					puts("2. Fight back!");
+					scanf("%d",&choice);
+					if(choice == 1)
+					{
+						puts("You make a mad dash to the exit as cactus thorns fly by your head.");
+						puts("You narrowly avoid getting hit as the jump through the door.");
+						puts("You feel your bag and notice some gold fell out!");
+						playerGold = playerGold - x;
+						printf("You lost %d gold!",playerGold);
+						puts("At least you made it out alive.\n");
+					}
 					else if(choice == 2)
 					{
-						puts("You ignore the creatures and head toward the treasure chest.");
-						x = (rand() % 100) + 1;
-						playerGold = x;
-						printf("You open it and find %d gold inside! You put the gold into your bag.",playerGold);
-						puts("You hear something hit the top of the chest and notice cactus thorns have pierced the chest.");
-						puts("The cactus creatures have fired their thorns at you and readying to fire again! What do you do?");
-						puts("1. Run away!");
-						puts("2. Fight back!");
-						scanf("%d",&choice);
-						if(choice == 1)
+						puts("You take one of the nearby cactus thorns and throw it back at the cactus creatures!");
+						hitChance = x;
+						if(hitChance >= 50)
 						{
-							puts("You make a mad dash to the exit as cactus thorns fly by your head.");
-							puts("You narrowly avoid getting hit as the jump through the door.");
-							puts("You feel your bag and notice some gold fell out!");
-							playerGold = playerGold - x;
-							printf("You lost %d gold!",playerGold);
-							puts("At least you made it out alive.\n");
+							puts("You hit one of cactus creatures! It runs away in pain, followed by the others.");
+							puts("You see that the cactus creatures left behind a flower.");
+							puts("You take it as a trophy");
+							puts("You got the Cactus Flower!");
+							playerInv[0] = 1;
+							puts("You leave the room, happy and full of spoils.");
 						}
-						else if(choice == 2)
+						else if(hitChance < 50)
 						{
-							puts("You take one of the nearby cactus thorns and throw it back at the cactus creatures!");
-							hitChance = x;
-							if(hitChance >= 50)
+							puts("You miss and get hit by another thorn!");
+							y = (rand() % 10) + 1;
+							playerHp = playerHp - y;
+							if(playerHp <= 0)
 							{
-								puts("You hit one of cactus creatures! It runs away in pain, followed by the others.");
-								puts("You see that the cactus creatures left behind a flower.");
-								puts("You take it as a trophy");
-								puts("You got the Cactus Flower!");
-								playerInv[0] = 1;
-								puts("You leave the room, happy and full of spoils.");
-							}
-							else if(hitChance < 50)
-							{
-								puts("You miss and get hit by another thorn!");
-								y = (rand() % 10) + 1;
-								playerHp = playerHp - y;
-								if(playerHp <= 0)
-								{
-									puts("You die, full of cactus thorns.");
-								}
+								puts("You die, full of cactus thorns.");
 							}
 						}
 					}
-					else if(choice == 3)
-					{
-						puts("You decide that this room is not worth your time and leave.\n");
-					}
-					break;
+				}
+				else if(choice == 3)
+				{
+					puts("You decide that this room is not worth your time and leave.\n");
 				}
 				break;
 			}
 			break;
 		}
+		break;
             case 4: // Edgar Baheha
 			{
 					while(choice != 99)
