@@ -1,5 +1,6 @@
 ﻿//Contributors
 
+
 //Brandon LaNuevo Room #1
 //Ivan Khaffaji Room #19
 //Thomas Jones (Tommiiie) #15
@@ -7,7 +8,6 @@
 //Hugo Rodriguez Room #10
 
 //Timothy Phung #room 6
-
 
 //Fernando ochoa room #18
 
@@ -34,7 +34,7 @@ void sleep(unsigned int seconds);
 void shuffle(int *a, int *b, int SIZE);
 void combine(int *a, int *b, int *c, int *d, int *all);
 
-int usleep(suseconds_t usec);
+//int usleep(suseconds_t usec);
 
 int rando(void);
 int gambleRandom(void);
@@ -4576,7 +4576,7 @@ void main(void)
 						puts("Explaining someone has to win the battle continues!"); 
 					}
 				} 
-    				return 0;			     
+//    				return 0;			     
                         }
                         break;
                 }
@@ -4887,22 +4887,23 @@ void main(void)
                                     switch(choice)
                                     {
                                         case 1:
-                                            puts("The kitten stopped crying. Good job! Now leaving room.");
+                                            puts("The kitten stopped crying! Good job!");
                                             choice = 19;
                                             break;
                                         case 2:
                                             puts("You heartless fool! Game over.");
                                             choice = 99;
                                             break;
-                                        case 3:
-                                            puts("You didn't take any kittens!!!!! You monster");
-                                            choice = 99;
                                         case 99:
                                             puts("Now leaving room.");
-                                            choice = 19;
+                                           choice = 99;
                                             break;
                                     }
                                     break;
+				    case 4:
+					  puts("How could you not grab a kitten?? You heartless fool. Game over. ");
+				  choice = 99;	
+				  break;
                             }
 
 
@@ -5759,4 +5760,5 @@ int getFileInfo(int num){
 	
 	return 0;
 }
+
 
