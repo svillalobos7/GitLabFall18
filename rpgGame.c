@@ -58,6 +58,7 @@ void randomfill(void);
 int getFileInfo(int num);
 void gameOver(int winOrlose);
 int checkInput(char option[10]);
+void TypeWriter(char *arr);
 
 void warning(int count);
 char uppercase(char *str);
@@ -1737,10 +1738,9 @@ void main(void)
 					fclose(wptr);
                 }
             case 8:
-                {
-			while(choice != 99) {
-					
-					//colors
+            {
+                while(choice != 99) {
+                    //colors
 						#define RED     "\x1b[0;31m"
 						#define BOLDRED "\x1b[1;31m"
 						
@@ -1770,25 +1770,328 @@ void main(void)
 					//check if option contains 99
 					//check if option has only 'h' for help
 					
-					puts("\nType "BOLDMAGENTA "h" RESET" for help");
-					puts("you open the door and find ........");
+					system("clear");
 					
-					int playedGames = getFileInfo(1);
 					
-					if(playedGames == 0){
-						//Question 1
-						while(1){
-							//Introduction
-							printf("\nYour name is "BOLDBLUE"%s"RESET", and you're on a trip to see family in Canada....\n",name);
-							puts("Everything seems to be going normally. You went through security and\nfound your seat on the plane.");
-							puts("Pretty soon you're in the air and the flight attendants are going\ndown the aisles to give out drinks");
-							puts("Would you like something to drink sir?");
-								puts("\t1. ask for water");
-								puts("\t2. ask for a sprite ");
-								puts("\t3. ask for a beer ");
-								puts("\t4. tell her to go away\n");
+					//OPENING TITLES//
+					usleep(75000 * 10);  /* sleep for 100 milliSeconds */
+					
+					//frame1
+						puts("\n\n\n\n\n\n\n\n\n");
+						puts("+-----------------------------------------------------------------------------+");
+						puts("+-----------------------------------------------------------------------------+");
+						usleep(50000); 
+						system("clear");
+					//frame2
+						puts("\n\n\n\n\n\n\n\n");
+						puts("+-----------------------------------------------------------------------------+");
+						puts(BOLDBLUE"  \\___ \\| | | | '__\\ \\ / / \\ \\ / / _` | | | | |_ |/ _` | '_ ` _ \\ / _ \\ "RESET);
+						puts("+-----------------------------------------------------------------------------+");
+						usleep(50000); 
+						system("clear");
+					//frame3
+						puts("\n\n\n\n\n\n\n");
+						puts("+-----------------------------------------------------------------------------+");
+						puts(BOLDBLUE" | (___  _   _ _ ____   _____   ____ _| | | |  __  __ _ _ __ ___   ___ ");
+						puts("  \\___ \\| | | | '__\\ \\ / / \\ \\ / / _` | | | | |_ |/ _` | '_ ` _ \\ / _ \\ ");
+						puts("  ____) | |_| | |   \\ V /| |\\ V / (_| | | | |__| | (_| | | | | | |  __/"RESET);
+						puts("+-----------------------------------------------------------------------------+");
+						usleep(50000); 
+						system("clear");
+				
+					//frame4
+						puts("\n\n\n\n\n\n");
+						puts("+-----------------------------------------------------------------------------+");
+						puts(BOLDBLUE"  / ____|                (_)          | |  / ____|                     ");
+						puts(" | (___  _   _ _ ____   _____   ____ _| | | |  __  __ _ _ __ ___   ___ ");
+						puts("  \\___ \\| | | | '__\\ \\ / / \\ \\ / / _` | | | | |_ |/ _` | '_ ` _ \\ / _ \\ ");
+						puts("  ____) | |_| | |   \\ V /| |\\ V / (_| | | | |__| | (_| | | | | | |  __/"RESET);
+						puts("+-----------------------------------------------------------------------------+");
+						usleep(50000); 
+						system("clear");
+						
+					//frame5
+						puts("\n\n\n\n\n");
+						puts("+-----------------------------------------------------------------------------+");
+						puts(BOLDBLUE"   _____                  _            _    _____                      ");
+						puts("  / ____|                (_)          | |  / ____|                     ");
+						puts(" | (___  _   _ _ ____   _____   ____ _| | | |  __  __ _ _ __ ___   ___ ");
+						puts("  \\___ \\| | | | '__\\ \\ / / \\ \\ / / _` | | | | |_ |/ _` | '_ ` _ \\ / _ \\ ");
+						puts("  ____) | |_| | |   \\ V /| |\\ V / (_| | | | |__| | (_| | | | | | |  __/");
+						puts(" |_____/ \\__,_|_|    \\_/ |_| \\_/ \\__,_|_|  \\_____|\\__,_|_| |_| |_|\\___|"RESET);
+						puts("\n+-----------------------------------------------------------------------------+");
+						printf("                                                            ");
+						TypeWriter("Version 1.0");
+						usleep(150000); 
+						system("clear");
+						
+					//frame6
+						puts("\n\n\n\n\n");
+						puts("+-----------------------------------------------------------------------------+");
+						puts(BOLDBLUE"   _____                  _            _    _____                      ");
+						puts("  / ____|                (_)          | |  / ____|                     ");
+						puts(" | (___  _   _ _ ____   _____   ____ _| | | |  __  __ _ _ __ ___   ___ ");
+						puts("  \\___ \\| | | | '__\\ \\ / / \\ \\ / / _` | | | | |_ |/ _` | '_ ` _ \\ / _ \\ ");
+						puts("  ____) | |_| | |   \\ V /| |\\ V / (_| | | | |__| | (_| | | | | | |  __/");
+						puts(" |_____/ \\__,_|_|    \\_/ |_| \\_/ \\__,_|_|  \\_____|\\__,_|_| |_| |_|\\___|"RESET);
+						puts("\n+-----------------------------------------------------------------------------+");
+						printf(BOLDGREEN);
+						printf("                                                            Version 1.0");
+						printf(RESET);
+						//usleep(100000 * 10); 
+					
+					//prompt to continue
+						puts("\n\n\n\n\n\n\n");
+						printf("Press ENTER to continue........");
+						getchar();
+						getchar();
+						
+					//MENU//
+						system("clear");
+						
+						puts("+-----------------------------------------------------------------------------+");
+						puts(BOLDGREEN"                                Survival Game                              1.0"RESET);
+						puts("                        _");
+						puts("                       /#\\");
+						puts("                      /###\\     /\\");
+						puts("                     /  ###\\   /##\\  /\\");
+						puts("                    /      #\\ /####\\/##\\");
+						puts("                   /  /       /     # / ##\\             _       /\\");
+						puts("                 // //  /\\  /    _/  /    #\\ _         /#\\    _/##\\    /\\");
+						puts("                // /   /  \\     /   /    #\\ \\        _/###\\_ /   ##\\__/ _\\");
+						puts("               /  \\   / .. \\   / /   _   { \\ \\   _/       / //    /    \\");
+						puts("     /\\      /    /\\  ...  \\_/   / / \\   } \\ | /  /\\  \\ /  _    /  /    \\ /\\\\ ");
+						puts("+-----------------------------------------------------------------------------+");
+	
+						puts("["BOLDGREEN"1"RESET"] Play");
+						puts("["BOLDBLUE"2"RESET"] Game Stats");
+						puts("["BOLDYELLOW"3"RESET"] Pirate Mode");
+						puts("["BOLDMAGENTA"4"RESET"] Help");
+						puts("");
+						puts("["BOLDRED"99"RESET"] Exit");
+						puts("");
+						puts(" Marcus Schumann                                   Copyright or something 2018  ");
+						puts("+-----------------------------------------------------------------------------+");
+						TypeWriter(BOLDGREEN REVERSED">"RESET" ");
+						scanf("%d",&choice);
+					
+					if(choice == 1){
+						system("clear");
+						puts("Type "BOLDMAGENTA "h" RESET" for help\n\n\n\n\n\n\n\n\n\n\n\n");
+					
+						int playedGames = getFileInfo(1);
+						
+						//PROLOGUE (if never played)//
+						if(playedGames == 0){
+							//Question 1
+							while(1){
+								//Introduction
+								TypeWriter("\nYour name is ");
+								printf(BOLDBLUE"%s"RESET,name);
+								TypeWriter(", and you're on a trip to see family in Canada....\n");
+								TypeWriter("Everything seems to be going normally. You went through security and\nfound your seat on the plane.\n");
+								TypeWriter("Pretty soon you're in the air and the flight attendants are going\ndown the aisles to give out drinks\n");
+								TypeWriter("Would you like something to drink sir?\n");
+									puts("\t1. ask for water");
+									puts("\t2. ask for a sprite ");
+									puts("\t3. ask for a beer ");
+									puts("\t4. tell her to go away\n");
+								
+								TypeWriter(BOLDGREEN REVERSED"What Say You?:"RESET" ");
+								scanf("%s",option);
+								result = checkInput(option);
 							
-							printf(BOLDGREEN REVERSED"What Say You?:"RESET" ");
+								while(result  == 0 || result == -1){
+								
+									if(result == 0 && result != 1){
+										if(strcmp("h",option) == 0 || strcmp("H",option) == 0){
+											//help
+											printf(BOLDMAGENTA UNDERLINE "HELP:\n"RESET);
+											printf("\nThis is an interactive game. Use numbers to make\nchoices in the game\n");
+											
+										}
+									}
+										
+									printf("\nWrong input type try again..\n\n");
+									printf(BOLDGREEN REVERSED"What Say You?:"RESET" ");
+									scanf("%s",option);
+									result = checkInput(option);
+										
+								}
+							
+							
+								//extract integer out of string
+								int num_choice;
+								char *ptr = option;
+								
+								while (*ptr){
+									if (isdigit(*ptr)) {
+										int val = strtol(ptr, &ptr, 10);
+										num_choice = val;
+									} else {
+										ptr++;
+									}
+								}
+							
+								choice = num_choice;
+		
+								switch(choice) {
+									case 1:
+										printf("Here you go sir\n");
+										printf("You like water.\n\n");
+										break;
+									case 2:
+										printf("Here you go sir\n");
+										printf("You like sprite.\n\n");
+										break;
+									case 3:
+										printf("Here you go sir\n");
+										printf("You like beer.\n\n");
+										break;
+									case 4:
+										printf("She looks at you angrily, then keeps going down the aisles\n\n");
+										break;
+									case  99:
+										printf("You quit the game\n\n");
+										exit(0);
+										break;
+									default :
+										printf(BOLDRED"\n\nNot a valid choice, Try Again.\n"RESET);
+								}
+							
+								if(choice == 1){
+									break;
+								}
+								
+								if(choice == 2){
+									break;
+								}
+								
+								if(choice == 3){
+									break;
+								}
+								
+								if(choice == 4){
+									break;
+								}
+							}
+							
+							//Question 2
+							while(1){
+						
+								puts("You decide to take nap........");
+								puts("you have a long way to go and you hate flying");
+								puts("zzzzzzzzzzzzzzzzzz");
+			
+								puts("\n\n\n\n\n\n\n\n");
+			
+								puts("An hour passes and the pilot gives out a message: ");
+								puts("Attention all passengers, we will be experiencing turbulence for the next hour. A large storm has formed in front of us");
+								puts("How do you react?:");
+			
+								puts("\t1. Scream and freak out!-You start hyperventilating");
+								puts("\t2. Remain calm\n");
+			
+								printf(BOLDGREEN REVERSED"What Say You?:"RESET" ");
+								scanf("%s",option);
+								result = checkInput(option);
+								
+								while(result  == 0 || result == -1){
+									
+									if(result == 0 && result != 1){
+										if(strcmp("h",option) == 0 || strcmp("H",option) == 0){
+											//help
+											printf(BOLDMAGENTA UNDERLINE "HELP:\n"RESET);
+											printf("\nThis is an interactive game. Use numbers to make\nchoices in the game\n");
+											
+										}
+									}
+									
+									printf("\nWrong input type try again..\n\n");
+									printf(BOLDGREEN REVERSED"What Say You?:"RESET" ");
+									scanf("%s",option);
+									result = checkInput(option);
+									
+								}
+							
+								//extract integer out of string
+									int num_choice;
+									char *ptr = option;
+									
+									while (*ptr){
+										if (isdigit(*ptr)) {
+											int val = strtol(ptr, &ptr, 10);
+											num_choice = val;
+										} else {
+											ptr++;
+										}
+									}
+								
+								choice = num_choice;
+								
+								switch(choice) {
+									case 1:
+										printf("You begin screaming like a 3 year old girl and get up and start running around like a headless chicken. You die from a heartattack\n");
+											//run GAMEOVER METHOD
+										exit(0);
+										choice = 99;
+										break; /* optional */
+									case 2:
+										printf("You remain calm as the plane starts to shake\n");
+										puts("A couple of minutes later the shaking becomes stronger and you glance around to see frightened passengers");
+										puts("The plane is then struck with lightning and the plane starts FALLING");
+										puts("\n");
+										puts("You wake up and find yourself among the wreckage of the plane. You're head is hurting from the crash and you feel dizzy");
+										puts("No one else is alive, but you know one thing: You must SURVIVE");
+										
+										
+										int numInput;
+										puts("\nDo you wish to continue?\ndo you accept the challenge to survive as long as possible?\n");
+										puts("\t1. yes");
+										puts("\t2. no\n");
+										scanf("%d",&numInput);
+										
+										
+										if(numInput == 1){
+											
+										}else{
+											printf("too bad");
+										}
+										
+										break; /* optional */
+									case  99:
+										printf("\n\nYou quit the game\n\n");
+										exit(0);
+										break;
+									default :
+										printf(BOLDRED"\n\nNot a valid choice, Try Again.\n"RESET);
+								}
+								
+								if(choice == 1){
+									break;
+								}
+							
+								if(choice == 2){
+									break;
+								}
+							}
+						}
+						//END of PROLOGUE//
+						
+						
+						//MAIN GAME//
+						
+						//Question1
+						while(1){
+							TypeWriter("\n\nOk let's begin...\n");
+							TypeWriter("So where were we...\n");
+							TypeWriter("Oh yeah, You find yourself in a clearing near the plane wreckage.\n");
+							puts("\t1. to the North there is a dense forest");
+							puts("\t2. to the East is the plane");
+							puts("\t3. to the West you can see mountains in the distance");
+							TypeWriter("\nWhere do you go?\n");
+							
+							TypeWriter(BOLDGREEN REVERSED">>"RESET" ");
 							scanf("%s",option);
 							result = checkInput(option);
 							
@@ -1809,8 +2112,8 @@ void main(void)
 								result = checkInput(option);
 									
 							}
-							
-							
+	
+	
 							//extract integer out of string
 								int num_choice;
 								char *ptr = option;
@@ -1825,22 +2128,26 @@ void main(void)
 								}
 							
 							choice = num_choice;
-	
+							
 							switch(choice) {
 								case 1:
-									printf("Here you go sir\n");
-									printf("You like water.\n\n");
+									printf("You venture forwards into the dense forest\n");
+									puts("You get eaten by a pack of wolves");
+									puts("Did you forget you're in the wilderness?");
+									gameOver(0);
 									break;
 								case 2:
-									printf("Here you go sir\n");
-									printf("You like sprite.\n\n");
+									puts("You go East towards the plane wreckage");
+									puts("You sift through the wreckage looking for anything you can use to survive");
+									puts("You find a backpack!");
+									puts("in the backpack you find some stuff:");
+									puts("\t1.matches");
+									puts("\t2.snickers - because snickers satisfies");
 									break;
 								case 3:
-									printf("Here you go sir\n");
-									printf("You like beer.\n\n");
-									break;
-								case 4:
-									printf("She looks at you angrily, then keeps going down the aisles\n\n");
+									puts("You decide to trek to the mountains");
+									puts("Without food or water you die within the week");
+									gameOver(0);
 									break;
 								case  99:
 									printf("You quit the game\n\n");
@@ -1861,27 +2168,20 @@ void main(void)
 							if(choice == 3){
 								break;
 							}
-							
-							if(choice == 4){
-								break;
-							}
+													
 						}
+						//Question 1 END
 						
+						
+						//Question 2
+						system("clear");
 						while(1){
-						
-							puts("You decide to take nap........");
-							puts("you have a long way to go and you hate flying");
-							puts("zzzzzzzzzzzzzzzzzz");
-		
-							puts("\n\n\n\n\n\n\n\n");
-		
-							puts("An hour passes and the pilot gives out a message: ");
-							puts("Attention all passengers, we will be experiencing turbulence for the next hour. A large storm has formed in front of us");
-							puts("How do you react?:");
-		
-							puts("\t1. Scream and freak out!-You start hyperventilating");
-							puts("\t2. Remain calm\n");
-		
+							puts("It's getting and late and the Sun is slowly disappearing");
+							puts("You need to make a fire...");
+							puts("\t1. Gather firewook and kindling, and use the matches");
+							puts("\t2. Freeze to death");
+							puts("\t3. Shout for help");
+							
 							printf(BOLDGREEN REVERSED"What Say You?:"RESET" ");
 							scanf("%s",option);
 							result = checkInput(option);
@@ -1903,7 +2203,8 @@ void main(void)
 								result = checkInput(option);
 									
 							}
-							
+	
+
 							//extract integer out of string
 								int num_choice;
 								char *ptr = option;
@@ -1916,41 +2217,30 @@ void main(void)
 										ptr++;
 									}
 								}
-								
+							
 							choice = num_choice;
 							
 							switch(choice) {
 								case 1:
-									printf("You begin screaming like a 3 year old girl and get up and start running around like a headless chicken. You die from a heartattack\n");
-										//run GAMEOVER METHOD
-									exit(0);
-									choice = 99;
-									break; /* optional */
+									puts("Good job.");
+									puts("you find an axe while scavenging for wood");
+									puts("and some rocks that look like they might give off a spark");
+									puts("do you want to store the rocks?");
+									puts("\t1. yes.");
+									puts("\t2. no. \n");
+									//gameOver(0);
+									break;
 								case 2:
-									printf("You remain calm as the plane starts to shake\n");
-									puts("A couple of minutes later the shaking becomes stronger and you glance around to see frightened passengers");
-									puts("The plane is then struck with lightning and the plane starts FALLING");
-									puts("\n");
-									puts("You wake up and find yourself among the wreckage of the plane. You're head is hurting from the crash and you feel dizzy");
-									puts("No one else is alive, but you know one thing: You must SURVIVE");
-									
-									
-									int numInput;
-									puts("\nDo you wish to continue?\ndo you accept the challenge to survive as long as possible?\n");
-									puts("\t1. yes");
-									puts("\t2. no\n");
-									scanf("%d",&numInput);
-									
-									
-									if(numInput == 1){
-										
-									}else{
-										printf("too bad");
-									}
-									
-									break; /* optional */
+									puts(":(");
+									gameOver(0);
+									break;
+								case 3:
+									puts("Wow great decision!");
+									puts("You are ripped apart by an angry bear who hears you");
+									gameOver(0);
+									break;
 								case  99:
-									printf("\n\nYou quit the game\n\n");
+									printf("You quit the game\n\n");
 									exit(0);
 									break;
 								default :
@@ -1960,350 +2250,132 @@ void main(void)
 							if(choice == 1){
 								break;
 							}
-						
+							
 							if(choice == 2){
 								break;
 							}
+							
+							if(choice == 3){
+								break;
+							}					
 						}
-					}
+						//Question 2 END
+					
+						break;
+					
+					
+					}else if(choice == 2){
+						system("clear");
+						//game stats
+							int gamesPlayed = 0;
+							int totalDeaths = 0;
+							int totalWins = 0;
+					
+						puts("+-----------------------------------------------------------------------------+\n");
+		
+						//TotalGames played
+							for(i = 0;i < 25;i++){
+								printf(" ");
+							}
+							printf("Total Games Played:   "BOLDRED);
+							gamesPlayed = getFileInfo(1);
+							printf("%d\n\n"RESET,gamesPlayed);
+		
+						//TotalDeaths
+							for(i = 0;i < 25;i++){
+								printf(" ");
+							}
+							printf("Total Wins:   "BOLDRED);
+							totalWins = getFileInfo(2);
+							printf("%d\n\n"RESET,totalWins);
+		
+						//LongestTimeSurvived
+							for(i = 0;i < 25;i++){
+								printf(" ");
+							}
+							printf("Total Deaths:   "BOLDRED);
+							totalDeaths = getFileInfo(3);
+							printf("%d\n\n"RESET,totalDeaths);
+							
+						puts("+-----------------------------------------------------------------------------+");
 						
-					
-					//game stats
-						int gamesPlayed = 0;
-						int totalDeaths = 0;
-						int totalWins = 0;
-				
-					//Title Block
-						puts("\n");
-						for(i = 0;i < 19;i++){
-							printf(" ");
-						}
-						printf(UNDERLINE BOLDGREEN "A SURVIVAL GAME\n" RESET);
-	
-					//boderlines1
-						printf(BLUE"<");
-						for(i = 0;i < 50;i++){
-							printf("-");
-						}
-						printf(">\n"RESET);
-	
-					//borderlines2
-						printf(BLUE"<");
-						for(i = 0;i < 50;i++){
-							printf("-");
-						}
-						printf(">\n"RESET);
-	
-					//TotalGames played
-						for(i = 0;i < 12;i++){
-							printf(" ");
-						}
-						printf("Total Games Played:   "BOLDRED);
-						gamesPlayed = getFileInfo(1);
-						printf("%d\n\n"RESET,gamesPlayed);
-	
-					//TotalDeaths
-						for(i = 0;i < 12;i++){
-							printf(" ");
-						}
-						printf("Total Wins:   "BOLDRED);
-						totalWins = getFileInfo(2);
-						printf("%d\n\n"RESET,totalWins);
-	
-					//LongestTimeSurvived
-						for(i = 0;i < 12;i++){
-							printf(" ");
-						}
-						printf("Total Deaths:   "BOLDRED);
-						totalDeaths = getFileInfo(3);
-						printf("%d\n\n"RESET,totalDeaths);
-	
-					//PLAY
-						for(i = 0;i < 12;i++){
-							printf(" ");
-						}
-						printf(BOLDGREEN UNDERLINE"Type PLAY"RESET"\tto begin playing\n");
-	
-					//copyright
-						printf("\n\n");
-						for(i = 0;i < 12;i++){
-							printf(" ");
-						}
-						printf("copyright or something 2018\n");
-	
-					//Marcus
-						for(i = 0;i < 12;i++){
-							printf(" ");
-						}
-						printf("Marcus Schumann\n\n");
-	
-					//help
-						printf(BOLDMAGENTA UNDERLINE "HELP:\n"RESET);
-						printf("This is an interactive game. Use numbers to make\nchoices in the game, type play to begin\n");
-						printf("type"YELLOW" PIRATE "RESET"for pirate mode,type 99 to quit\n");
-					
-					//boderlines1
-						printf(BLUE"<");
-						for(i = 0;i < 50;i++){
-							printf("-");
-						}
-						printf(">\n"RESET);
-	
-					//borderlines2
-						printf(BLUE"<");
-						for(i = 0;i < 50;i++){
-							printf("-");
-						}
-						printf(">\n\n"RESET);
+						puts("["BOLDGREEN"1"RESET"] Back");
+						puts("["BOLDRED"99"RESET"] Exit");
 						
-					while(1){
+						puts("+-----------------------------------------------------------------------------+");
 						
-						printf(BOLDGREEN REVERSED"What Say You?:"RESET" ");
-						scanf("%s",option);
-						result = checkInput(option);
-					
-						while(result  == 1 || result == -1){
-							if(result == 1){
-								
-								//extract integer out of string
-								int num_choice;
-								char *ptr = option;
-								
-								while (*ptr){
-									if (isdigit(*ptr)) {
-										int val = strtol(ptr, &ptr, 10);
-										num_choice = val;
-									} else {
-										ptr++;
-									}
-								}
-								
-								choice = num_choice;
-								
-								if(choice == 99){
-									printf("You quit the game\n\n");
-									exit(0);
-									break;
-									
-								}
-							}
-								
-							printf("\nWrong input type try again.. expected alphabetical characters\n\n");
-							printf(BOLDGREEN REVERSED"What Say You?:"RESET" ");
-							scanf("%s",option);
-							result = checkInput(option); 	
+						TypeWriter(BOLDGREEN REVERSED">"RESET" ");
+						scanf("%d",&choice);
+						
+						if(choice == 1){
+							
+							
+						}else if(choice == 99){
+							printf("You quit the game\n\n");
+							exit(0);
 						}
-					
-						int i;
-						for(i = 0;i < 10; i++){
-							if(option[i] != '\0'){
-								if(option[i] != 'I'){
-									option[i] = tolower(option[i]);
-								}
-							}
+							
+					}else if(choice == 3){
+						system("clear");
+						puts("+-----------------------------------------------------------------------------+\n");
+						
+						puts("Not implemented yet: version 2.0 :(\n");
+						
+						puts("+-----------------------------------------------------------------------------+");
+						
+						puts("["BOLDGREEN"1"RESET"] Back");
+						puts("["BOLDRED"99"RESET"] Exit");
+						
+						puts("+-----------------------------------------------------------------------------+");
+						
+						TypeWriter(BOLDGREEN REVERSED">"RESET" ");
+						scanf("%d",&choice);
+						
+						if(choice == 1){
+							
+							
+						}else if(choice == 99){
+							printf("You quit the game\n\n");
+							exit(0);
 						}
-					
-						if(strcmp("play",option) == 0){
-							
-							while(1){
-								puts("Ok let's begin...");
-								puts("So where were we...");
-								puts("Oh yeah, You find yourself in a clearing near the plane wreckage.\n");
-								puts("\t1. to the North there is a dense forest");
-								puts("\t2. to the East is the plane");
-								puts("\t3. to the West you can see mountains in the distance");
-								puts("\nWhere do you go?\n");
-								
-								printf(BOLDGREEN REVERSED"What Say You?:"RESET" ");
-								scanf("%s",option);
-								result = checkInput(option);
-								
-								while(result  == 0 || result == -1){
-									
-									if(result == 0 && result != 1){
-										if(strcmp("h",option) == 0 || strcmp("H",option) == 0){
-											//help
-											printf(BOLDMAGENTA UNDERLINE "HELP:\n"RESET);
-											printf("\nThis is an interactive game. Use numbers to make\nchoices in the game\n");
-											
-										}
-									}
-										
-									printf("\nWrong input type try again..\n\n");
-									printf(BOLDGREEN REVERSED"What Say You?:"RESET" ");
-									scanf("%s",option);
-									result = checkInput(option);
-										
-								}
-		
-		
-								//extract integer out of string
-									int num_choice;
-									char *ptr = option;
-									
-									while (*ptr){
-										if (isdigit(*ptr)) {
-											int val = strtol(ptr, &ptr, 10);
-											num_choice = val;
-										} else {
-											ptr++;
-										}
-									}
-								
-								choice = num_choice;
-								
-								switch(choice) {
-									case 1:
-										printf("You venture forwards into the dense forest\n");
-										puts("You get eaten by a pack of wolves");
-										puts("Did you forget you're in the wilderness?");
-										gameOver(0);
-										break;
-									case 2:
-										puts("You go East towards the plane wreckage");
-										puts("You sift through the wreckage looking for anything you can use to survive");
-										puts("You find a backpack!");
-										puts("in the backpack you find some stuff:");
-										puts("\t1.matches");
-										puts("\t2.snickers - because snickers satisfies");
-										break;
-									case 3:
-										puts("You decide to trek to the mountains");
-										puts("Without food or water you die within the week");
-										gameOver(0);
-										break;
-									case  99:
-										printf("You quit the game\n\n");
-										exit(0);
-										break;
-									default :
-										printf(BOLDRED"\n\nNot a valid choice, Try Again.\n"RESET);
-								}
-								
-								if(choice == 1){
-									break;
-								}
-								
-								if(choice == 2){
-									break;
-								}
-								
-								if(choice == 3){
-									break;
-								}
-														
-							}
-							
-							
-							while(1){
-								puts("It's getting and late and the Sun is slowly disappearing");
-								puts("You need to make a fire...");
-								puts("\t1. Gather firewook and kindling, and use the matches");
-								puts("\t2. Freeze to death");
-								puts("\t3. Shout for help");
-								
-								printf(BOLDGREEN REVERSED"What Say You?:"RESET" ");
-								scanf("%s",option);
-								result = checkInput(option);
-								
-								while(result  == 0 || result == -1){
-									
-									if(result == 0 && result != 1){
-										if(strcmp("h",option) == 0 || strcmp("H",option) == 0){
-											//help
-											printf(BOLDMAGENTA UNDERLINE "HELP:\n"RESET);
-											printf("\nThis is an interactive game. Use numbers to make\nchoices in the game\n");
-											
-										}
-									}
-										
-									printf("\nWrong input type try again..\n\n");
-									printf(BOLDGREEN REVERSED"What Say You?:"RESET" ");
-									scanf("%s",option);
-									result = checkInput(option);
-										
-								}
-		
-		
-								//extract integer out of string
-									int num_choice;
-									char *ptr = option;
-									
-									while (*ptr){
-										if (isdigit(*ptr)) {
-											int val = strtol(ptr, &ptr, 10);
-											num_choice = val;
-										} else {
-											ptr++;
-										}
-									}
-								
-								choice = num_choice;
-								
-								switch(choice) {
-									case 1:
-										puts("Good job.");
-										puts("you find an axe while scavenging for wood");
-										puts("and some rocks that look like they might give off a spark");
-										puts("do you want to store the rocks?");
-										puts("\t1. yes.");
-										puts("\t2. no. \n");
-										//gameOver(0);
-										break;
-									case 2:
-										puts(":(");
-										gameOver(0);
-										break;
-									case 3:
-										puts("Wow great decision!");
-										puts("You are ripped apart by an angry bear who hears you");
-										gameOver(0);
-										break;
-									case  99:
-										printf("You quit the game\n\n");
-										exit(0);
-										break;
-									default :
-										printf(BOLDRED"\n\nNot a valid choice, Try Again.\n"RESET);
-								}
-								
-								if(choice == 1){
-									break;
-								}
-								
-								if(choice == 2){
-									break;
-								}
-								
-								if(choice == 3){
-									break;
-								}
-														
-							}
-							
-							
-							
-			
-							break;
-						}else if(strcmp("h",option) == 0 || strcmp("help",option) == 0){
-							//help
+						
+					}else if(choice == 4){
+						system("clear");
+						puts("+-----------------------------------------------------------------------------+\n");
+						
+						//help
 							printf(BOLDMAGENTA UNDERLINE "HELP:\n"RESET);
-							printf("\nThis is an interactive game. Use numbers to make\nchoices in the game, type play to begin\n");
-							printf("type"YELLOW" PIRATE "RESET"for pirate mode,type 99 to quit\n\n");
-						}else{
-							printf("\nSorry couldn't understand that. Try Again\n\n");
+							printf("\nThis is an interactive game. Use numbers or short words to make choices in the \ngame.\n\n");
 							
+						puts("+-----------------------------------------------------------------------------+");
+						
+						puts("["BOLDGREEN"1"RESET"] Back");
+						puts("["BOLDRED"99"RESET"] Exit");
+						
+						puts("+-----------------------------------------------------------------------------+");
+						
+						TypeWriter(BOLDGREEN REVERSED">"RESET" ");
+						scanf("%d",&choice);
+						
+						if(choice == 1){
+							
+							
+						}else if(choice == 99){
+							printf("You quit the game\n\n");
+							exit(0);
 						}
+							
+					}else if(choice == 99){
+						printf("You quit the game\n\n");
+						exit(0);
+					}else{
+                        printf("Sorry con't recognize that input type\n\n");
 					}
-								
-								
-					scanf("%d",&choice);
 				}
+                scanf("%d",&choice);
 
 				break;	
-
-					
-                }
+            }
             case 9:
                 {
 					#define FILE_NAME "MadDog.txt"
@@ -6006,6 +6078,7 @@ int getFileInfo(int num){
 	return 0;
 }
 
+
 int randomize(int *num, int SIZE)
 {
     int i;
@@ -6044,6 +6117,16 @@ void warning(int count)
             printf(""RED("WARNING! TIME SYSTEM MALFUNCTION!")"");
         }
         
+    }
+}
+
+void TypeWriter(char *arr){
+    int len = strlen(arr);
+    int i;
+    for(i = 0; i < len; i++) {
+        putchar(arr[i]);
+        usleep(30000);  /* sleep for 35 milliSeconds */
+		fflush(stdout);
     }
 }
 
